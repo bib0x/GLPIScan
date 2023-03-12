@@ -13,21 +13,28 @@ GLPIScan has been developped for python3.
 
 ## Installation
 
-2 possiblities is offered to install and use GLPIScan
-
-### Classic installation
-In order to install GLPIScan, you only need to clone the repository, and install the python dependencies using the requirements.txt
-
-```bash
-$ pip install -r requirements.txt
-```
+3 possiblities is offered to install and use GLPIScan
 
 ### Pipenv installation
 It is also possible to use pipenv in order to install all dependencies inside a virtual environnment :
 ```bash
 $ python3 -m pip install pipenv 
-$ python3 -m pipenv install
+$ python3 -m pipenv install -e .
 $ python3 -m pipenv shell
+```
+
+### Setuptools develop mode
+```bash
+$ python3 -m pip install pipenv
+$ python3 -m pipenv shell
+(GLPIScan) $ pip install -e .
+```
+
+### Using nix
+
+```bash
+$ nix-build https://github.com/bib0x/nixpkgs/archive/25bcec10323db63954678f922ece798c2a3c4f00.tar.gz -A glpiscan
+$ ./result/bin/glpiscan --help
 ```
 
 ## Usage
@@ -35,7 +42,16 @@ $ python3 -m pipenv shell
 List of options :
 
 ```
-usage: GLPIScan.py [-h] -u url [-a] [-c] [-C credsfile] [-f] [-p] [-d]
+ ______     __         ______   __     ______     ______     ______     __   __
+/\  ___\   /\ \       /\  == \ /\ \   /\  ___\   /\  ___\   /\  __ \   /\ "-.\ \
+\ \ \__ \  \ \ \____  \ \  __/ \ \ \  \ \___  \  \ \ \____  \ \  __ \  \ \ \-.  \
+ \ \_____\  \ \_____\  \ \_\    \ \_\  \/\_____\  \ \_____\  \ \_\ \_\  \ \_\"\_\
+  \/_____/   \/_____/   \/_/     \/_/   \/_____/   \/_____/   \/_/\/_/   \/_/ \/_/
+                                                      v1.5 contact[@]digitemis.com
+
+
+
+usage: glpiscan [-h] -u url [-a] [-e] [-c] [-C credsfile] [-f] [-p] [-d]
 
 GLPI Vulnerability Scanner.
 
@@ -54,7 +70,7 @@ optional arguments:
 Most common usage :
 
 ```bash
-$ python3 GLPIScan.py -u http://glpi/ -a
+(GLPIScan) $ glpiscan -u http://glpi/ -a 
 ```
 
 ## Further configuration
